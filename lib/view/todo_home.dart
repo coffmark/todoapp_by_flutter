@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:todo/add_todo_screen.dart';
+import 'package:todo/view/todo_list.dart';
+import 'package:todo/todo_model.dart';
+import 'package:provider/provider.dart';
 
 class ToDoHome extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.lightBlueAccent,
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(context: context, builder: (context) => AddTodoScreen());
+          },
           child: Icon(Icons.add),
         ),
         body: SafeArea(
@@ -15,7 +22,7 @@ class ToDoHome extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               ConstrainedBox(
-                constraints: BoxConstraints(minHeight: 100),
+                constraints: BoxConstraints(minHeight: 80),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.red,
@@ -40,15 +47,17 @@ class ToDoHome extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          'Todo',
+                          '#今日の積み上げ',
                           style: TextStyle(
                               color: Colors.red,
-                              fontSize: 50,
+                              fontSize: 30,
                               fontWeight: FontWeight.w700),
                         ),
-                        SizedBox(width: 50,),
+                        SizedBox(
+                          width: 1,
+                        ),
                         Text(
-                          '12 tasks',
+                          '${Provider.of<TodoModel>(context).todoCount.toString()} items',
                           style: TextStyle(color: Colors.black, fontSize: 18),
                         ),
                       ],
@@ -57,18 +66,11 @@ class ToDoHome extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.0),
-                          topRight: Radius.circular(20.0)),
-                      color: Colors.blueAccent),
-                  child: Text('taka'),
-                ),
+                child: TodoList(),
               )
             ],
           ),
         ));
   }
 }
+
