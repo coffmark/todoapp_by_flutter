@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TodoTile extends StatelessWidget {
   final String todoTitle;
   final Function deletePressCallback;
@@ -21,7 +20,7 @@ class TodoTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                todoTitle,
+                '$todoTitle',
               ),
               IconButton(
                   onPressed: deletePressCallback,

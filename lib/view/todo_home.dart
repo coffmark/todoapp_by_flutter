@@ -47,14 +47,14 @@ class ToDoHome extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          '#今日の積み上げ',
+                          'Todo List',
                           style: TextStyle(
                               color: Colors.red,
                               fontSize: 30,
                               fontWeight: FontWeight.w700),
                         ),
                         SizedBox(
-                          width: 1,
+                          width: 100,
                         ),
                         Text(
                           '${Provider.of<TodoModel>(context).todoCount.toString()} items',

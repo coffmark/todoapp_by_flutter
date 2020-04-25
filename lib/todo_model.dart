@@ -23,13 +23,14 @@ class TodoModel extends ChangeNotifier {
   }
 
   void addTodo(String newTodoText) {
-    final todo = Todo(todoTask: newTodoText);
-    _todos.add(todo);
+    final Todo addtodo = Todo(todoTask: newTodoText);
+    _todos.add(addtodo);
     notifyListeners();
   }
 
 //TODO:deleteボタンの実装 --> コールバック関数の用意
 //TODO:Firebaseとの連携
+//TODO:端末にデータを残すshared_preferenceというパッケージ
 //TODO:Googleplaystoreに提携
 //TODO:NotifyListners()について
 
