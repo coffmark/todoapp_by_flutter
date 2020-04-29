@@ -23,7 +23,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
       child: Column(
         children: <Widget>[
           Text(
-            'Add Todo',
+            'タスクの追加',
             style: TextStyle(fontSize: 30.0),
             textAlign: TextAlign.center,
           ),
@@ -32,7 +32,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
             textAlign: TextAlign.center,
             onChanged: (value) {
               newTodoTitle = value;
-              print(newTodoTitle);
+              print('$newTodoTitle in TextField');
             },
           ),
           SizedBox(
@@ -40,14 +40,15 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
           ),
           FlatButton(
             child: Text(
-              'Add',
+              '追加',
               style: TextStyle(color: Colors.white),
             ),
             color: Colors.red,
             onPressed: () {
+              print('$newTodoTitle is new Text');
               Provider.of<TodoModel>(context, listen: false)
                   .addTodo(newTodoTitle);
-              //TODO:Navigator.pop(context);も参照する
+
               Navigator.pop(context);
             },
           )

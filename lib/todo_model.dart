@@ -5,19 +5,17 @@ import 'package:todo/todo.dart';
 
 class TodoModel extends ChangeNotifier {
   List<Todo> _todos = [
-    Todo(todoTask: 'Buy milk'),
-    Todo(todoTask: 'Buy eggs'),
-    Todo(todoTask: 'Buy bread'),
+    Todo(todoTask: 'Flutterでのアプリ開発'),
+    Todo(todoTask: '1日1冊本を読む'),
+    Todo(todoTask: '就活(自己分析)'),
   ];
 
-  //TODO:getプロパティとは
+
   int get todoCount {
     return _todos.length;
   }
 
-  /*
-  TODO:UnmodifiableListView
-   */
+
   UnmodifiableListView<Todo> get todos {
     return UnmodifiableListView(_todos);
   }
@@ -28,11 +26,7 @@ class TodoModel extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO:deleteボタンの実装 --> コールバック関数の用意
-//TODO:Firebaseとの連携
-//TODO:端末にデータを残すshared_preferenceというパッケージ
-//TODO:Googleplaystoreに提携
-//TODO:NotifyListners()について
+
 
   void deleteTodo(Todo deleteTodoText) {
     _todos.remove(deleteTodoText);

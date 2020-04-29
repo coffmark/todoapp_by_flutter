@@ -12,7 +12,7 @@ class TodoList extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50.0),
                 topRight: Radius.circular(50.0)),
-            color: Colors.blueAccent),
+            color: Colors.blueAccent[200]),
         child: Consumer<TodoModel>(builder: (context, todoModel, child) {
           return ListView.separated(
             padding: const EdgeInsets.all(10),

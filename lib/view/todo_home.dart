@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo/add_todo_screen.dart';
 import 'package:todo/view/todo_list.dart';
 import 'package:todo/todo_model.dart';
 import 'package:provider/provider.dart';
 
 class ToDoHome extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.lightBlueAccent,
-          onPressed: () {
-            showModalBottomSheet(context: context, builder: (context) => AddTodoScreen());
-          },
-          child: Icon(Icons.add),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            FloatingActionButton(
+              backgroundColor: Colors.lightBlueAccent,
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context, builder: (context) => AddTodoScreen());
+              },
+              child: Icon(Icons.add),
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colors.red,
+              child: FaIcon(FontAwesomeIcons.hashtag),
+            )
+          ],
         ),
         body: SafeArea(
           child: Column(
@@ -47,14 +58,14 @@ class ToDoHome extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          'Todo List',
+                          '#今日の積み上げ',
                           style: TextStyle(
                               color: Colors.red,
                               fontSize: 30,
                               fontWeight: FontWeight.w700),
                         ),
                         SizedBox(
-                          width: 100,
+                          width: 10,
                         ),
                         Text(
                           '${Provider.of<TodoModel>(context).todoCount.toString()} items',
@@ -73,4 +84,3 @@ class ToDoHome extends StatelessWidget {
         ));
   }
 }
-
