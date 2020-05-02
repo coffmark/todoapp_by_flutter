@@ -2,7 +2,8 @@
 
 ![](https://github.com/Ryosukekamimura/todoapp_by_flutter/blob/master/images/14.jpg)
 
-残りは、Twitterに#今日の積み上げを投稿するロジックを作成していきます。
+残りはTwitterに#今日の積み上げを投稿するロジックを作成していきます。
+
 
 
 
