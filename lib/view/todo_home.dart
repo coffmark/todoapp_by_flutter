@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo/add_todo_screen.dart';
 import 'package:todo/view/todo_list.dart';
-import 'package:todo/todo_model.dart';
+import 'package:todo/model/todo_model.dart';
 import 'package:provider/provider.dart';
+import 'tweet_button.dart';
+
 
 class ToDoHome extends StatelessWidget {
   @override
@@ -21,11 +22,7 @@ class ToDoHome extends StatelessWidget {
               },
               child: Icon(Icons.add),
             ),
-            FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: Colors.red,
-              child: FaIcon(FontAwesomeIcons.hashtag),
-            )
+            TweetButton()
           ],
         ),
         body: SafeArea(
@@ -84,3 +81,5 @@ class ToDoHome extends StatelessWidget {
         ));
   }
 }
+
+
