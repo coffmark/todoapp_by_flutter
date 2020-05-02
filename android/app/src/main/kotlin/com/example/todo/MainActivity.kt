@@ -13,6 +13,8 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.os.Build
+
 import io.flutter.Log
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugins.GeneratedPluginRegistrant
@@ -30,16 +32,12 @@ class MainActivity: FlutterActivity() {
         Log.i("user_debug", "MainActivity: onCreate")
 
         GeneratedPluginRegistrant.registerWith(FlutterEngine(this))
+
+
         MethodChannel(FlutterView(this), CHANNEL).setMethodCallHandler{
-            setMethodCallHandler(){
-                public void fun onMethodCall(MethodCall methodCall, Result result){
-                    if(methodCall.method.equals("tweet")){
-                        openTwitter()
-                    }else{
-                        result.notImplemented()
-                    }
-                }
-            }
+            methodCall, result -> when(methodCall.method.equals("tweet")){
+                openTwitter()
+            }else -> result.notImplemented()
         }
     }
 
