@@ -6,15 +6,12 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 class ToDoHome extends StatefulWidget {
-
   @override
   _ToDoHomeState createState() => _ToDoHomeState();
 }
 
 class _ToDoHomeState extends State<ToDoHome> {
-
   String subject = "";
 
   @override
@@ -33,16 +30,18 @@ class _ToDoHomeState extends State<ToDoHome> {
               child: Icon(Icons.add),
             ),
             FloatingActionButton(
-      onPressed: () {
-        final RenderBox box = context.findRenderObject();
-        //TODO: shareメソッドの使い方
-        Share.share("${Provider.of<TodoModel>(context, listen:false).todogetItem()}",
-            subject: subject,
-            sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
-      },
-      backgroundColor: Colors.red,
-      child: FaIcon(FontAwesomeIcons.hashtag),
-    )
+              onPressed: () {
+                final RenderBox box = context.findRenderObject();
+                //TODO: shareメソッドの使い方
+                Share.share(
+                    "${Provider.of<TodoModel>(context, listen: false).todogetItem()}",
+                    subject: subject,
+                    sharePositionOrigin:
+                        box.localToGlobal(Offset.zero) & box.size);
+              },
+              backgroundColor: Colors.red,
+              child: FaIcon(FontAwesomeIcons.hashtag),
+            )
           ],
         ),
         body: SafeArea(
@@ -101,5 +100,3 @@ class _ToDoHomeState extends State<ToDoHome> {
         ));
   }
 }
-
-

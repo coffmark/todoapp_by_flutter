@@ -22,10 +22,12 @@ class TodoModel extends ChangeNotifier {
     for (var i = 1; i < _todos.length; i++) {
       todoItemLine.add(_todos[i].todoTask);
     }
+    
 
 
     List todoItem = todoItemLine.map((item) => "・$item").toList();
     String todoItemForTweet = todoItem.join("\n");
+    todoItemForTweet = todoItemForTweet + "\n#今日の積み上げ";
     return todoItemForTweet;
   }
 
