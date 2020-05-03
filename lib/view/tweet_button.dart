@@ -11,23 +11,13 @@ class TweetButton extends StatefulWidget {
 
 class _TweetButtonState extends State<TweetButton> {
 
-  static const channel = MethodChannel('com.twitterconnection');
-
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: _onpressedButton,
+      onPressed: (){
+      },
       backgroundColor: Colors.red,
       child: FaIcon(FontAwesomeIcons.hashtag),
     );
-  }
-
-  Future<void> _onpressedButton() async {
-    try{
-      await channel.invokeMethod('tweet');
-    }on PlatformException catch(e){
-      print(e);
-    }
-
   }
 }
