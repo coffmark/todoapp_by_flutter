@@ -36,7 +36,7 @@ class _ToDoHomeState extends State<ToDoHome> {
       onPressed: () {
         final RenderBox box = context.findRenderObject();
         //TODO: shareメソッドの使い方
-        Share.share("${Provider.of<TodoModel>(context, listen:false).todos[0].todoTask}",
+        Share.share("${Provider.of<TodoModel>(context, listen:false).todogetItem()}",
             subject: subject,
             sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
       },

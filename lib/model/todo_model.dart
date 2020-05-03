@@ -15,9 +15,18 @@ class TodoModel extends ChangeNotifier {
     return _todos.length;
   }
 
-  void todogetListItem(){
-    List<String> todoItemArray = [];
-    
+  String todogetItem(){
+    List todoItemLine = ['${_todos[0].todoTask}'];
+
+    //.addメソッドはnullには入らない
+    for (var i = 1; i < _todos.length; i++) {
+      todoItemLine.add(_todos[i].todoTask);
+    }
+
+
+    List todoItem = todoItemLine.map((item) => "・$item").toList();
+    String todoItemForTweet = todoItem.join("\n");
+    return todoItemForTweet;
   }
 
 
