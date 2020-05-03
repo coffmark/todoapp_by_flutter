@@ -3,10 +3,20 @@ import 'package:todo/add_todo_screen.dart';
 import 'package:todo/view/todo_list.dart';
 import 'package:todo/model/todo_model.dart';
 import 'package:provider/provider.dart';
-import 'tweet_button.dart';
+import 'package:share/share.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-class ToDoHome extends StatelessWidget {
+class ToDoHome extends StatefulWidget {
+
+  @override
+  _ToDoHomeState createState() => _ToDoHomeState();
+}
+
+class _ToDoHomeState extends State<ToDoHome> {
+
+  String subject = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +32,17 @@ class ToDoHome extends StatelessWidget {
               },
               child: Icon(Icons.add),
             ),
-            TweetButton()
+            FloatingActionButton(
+      onPressed: () {
+        final RenderBox box = context.findRenderObject();
+        //TODO: shareメソッドの使い方
+        Share.share("${Provider.of<TodoModel>(context, listen:false).todos[0].todoTask}",
+            subject: subject,
+            sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+      },
+      backgroundColor: Colors.red,
+      child: FaIcon(FontAwesomeIcons.hashtag),
+    )
           ],
         ),
         body: SafeArea(

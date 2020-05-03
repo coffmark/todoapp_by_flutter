@@ -15,6 +15,11 @@ class TodoModel extends ChangeNotifier {
     return _todos.length;
   }
 
+  void todogetListItem(){
+    List<String> todoItemArray = [];
+    
+  }
+
 
   UnmodifiableListView<Todo> get todos {
     return UnmodifiableListView(_todos);
@@ -25,6 +30,7 @@ class TodoModel extends ChangeNotifier {
     _todos.add(addtodo);
     notifyListeners();
   }
+
 
 
 
