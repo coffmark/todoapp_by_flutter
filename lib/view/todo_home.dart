@@ -22,7 +22,7 @@ class _ToDoHomeState extends State<ToDoHome> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             FloatingActionButton(
-              backgroundColor: Colors.lightBlueAccent,
+              backgroundColor: Colors.black45,
               onPressed: () {
                 showModalBottomSheet(
                     context: context, builder: (context) => AddTodoScreen());
@@ -39,8 +39,10 @@ class _ToDoHomeState extends State<ToDoHome> {
                     sharePositionOrigin:
                         box.localToGlobal(Offset.zero) & box.size);
               },
-              backgroundColor: Colors.red,
-              child: FaIcon(FontAwesomeIcons.hashtag),
+              backgroundColor: Colors.indigo[100],
+              child: FaIcon(
+                FontAwesomeIcons.hashtag,
+              ),
             )
           ],
         ),
@@ -51,8 +53,17 @@ class _ToDoHomeState extends State<ToDoHome> {
               ConstrainedBox(
                 constraints: BoxConstraints(minHeight: 80),
                 child: Container(
+                  child: CircleAvatar(
+                    backgroundColor: Colors.lightBlue[800],
+                    child: Icon(
+                      Icons.assignment,
+                      size: 30.0,
+                      color: Colors.white,
+                    ),
+                    radius: 20.0,
+                  ),
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.lightBlue[900],
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(100.0),
                         bottomRight: Radius.circular(100.0)),
@@ -60,23 +71,16 @@ class _ToDoHomeState extends State<ToDoHome> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    CircleAvatar(
-                      child: Icon(
-                        Icons.assignment,
-                        size: 30.0,
-                      ),
-                      radius: 30.0,
-                    ),
                     Row(
                       children: <Widget>[
                         Text(
                           '#今日の積み上げ',
                           style: TextStyle(
-                              color: Colors.red,
+                              color: Colors.yellow[900],
                               fontSize: 30,
                               fontWeight: FontWeight.w700),
                         ),
