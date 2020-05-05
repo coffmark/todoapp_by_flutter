@@ -1,6 +1,6 @@
 # todo
 
-![](https://github.com/Ryosukekamimura/todoapp_by_flutter/blob/master/images/14.jpg)
+![](https://github.com/Ryosukekamimura/todoapp_by_flutter/blob/master/assets/images/14.jpg)
 
 残りはTwitterに#今日の積み上げを投稿するロジックを作成していきます。
 
