@@ -1,7 +1,9 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:todo/model/todo.dart';
+
 
 class TodoModel extends ChangeNotifier {
   List<Todo> _todos = [
@@ -17,14 +19,9 @@ class TodoModel extends ChangeNotifier {
 
   String todogetItem(){
     List todoItemLine = ['${_todos[0].todoTask}'];
-
-    //.addメソッドはnullには入らない
     for (var i = 1; i < _todos.length; i++) {
       todoItemLine.add(_todos[i].todoTask);
     }
-    
-
-
     List todoItem = todoItemLine.map((item) => "・$item").toList();
     String todoItemForTweet = todoItem.join("\n");
     todoItemForTweet = todoItemForTweet + "\n#今日の積み上げ";
@@ -49,4 +46,5 @@ class TodoModel extends ChangeNotifier {
     _todos.remove(deleteTodoText);
     notifyListeners();
   }
+
 }
