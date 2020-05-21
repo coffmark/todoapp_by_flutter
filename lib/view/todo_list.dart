@@ -19,7 +19,7 @@ class TodoList extends StatelessWidget {
             itemCount: todoModel.todoCount,
             itemBuilder: (BuildContext context, int index) {
               return TodoTile(
-                todoTitle: todoModel.todos[index].todoTask,
+                todoTitle: todoModel.todos[index],
                 deletePressCallback: () {
                   todoModel.deleteTodo(todoModel.todos[index]);
                 },

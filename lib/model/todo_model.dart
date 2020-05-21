@@ -4,12 +4,46 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/model/todo.dart';
 
+import 'dart:async';
+import 'package:flutter/widgets.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+
+
+
+// void main() async{
+//   WidgetsFlutterBinding.ensureInitialized();
+//   final database = openDatabase(join(await getDatabasesPath(), 'todo_database.db'),
+//   onCreate: (db, version){
+//     return db.execute("CREATE TABLE todos()")
+//   });
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class TodoModel extends ChangeNotifier {
-  List<Todo> _todos = [
-    Todo(todoTask: 'Flutterでのアプリ開発'),
-    Todo(todoTask: '1日1冊本を読む'),
-    Todo(todoTask: '就活(自己分析)'),
+  final String todoTask;
+
+  TodoModel({this.todoTask});
+
+  List<String> _todos = [
+    'Flutter勉強',
+    '大学のレポート',
   ];
 
 
@@ -18,9 +52,9 @@ class TodoModel extends ChangeNotifier {
   }
 
   String todogetItem(){
-    List todoItemLine = ['${_todos[0].todoTask}'];
+    List todoItemLine = ['${_todos[0]}'];
     for (var i = 1; i < _todos.length; i++) {
-      todoItemLine.add(_todos[i].todoTask);
+      todoItemLine.add(_todos[i]);
     }
     List todoItem = todoItemLine.map((item) => "・$item").toList();
     String todoItemForTweet = todoItem.join("\n");
@@ -29,20 +63,19 @@ class TodoModel extends ChangeNotifier {
   }
 
 
-  UnmodifiableListView<Todo> get todos {
+  UnmodifiableListView<String> get todos {
     return UnmodifiableListView(_todos);
   }
 
   void addTodo(String newTodoText) {
-    final Todo addtodo = Todo(todoTask: newTodoText);
-    _todos.add(addtodo);
+    _todos.add(newTodoText);
     notifyListeners();
   }
 
 
 
 
-  void deleteTodo(Todo deleteTodoText) {
+  void deleteTodo(String deleteTodoText) {
     _todos.remove(deleteTodoText);
     notifyListeners();
   }
