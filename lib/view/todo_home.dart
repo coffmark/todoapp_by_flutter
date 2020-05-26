@@ -34,7 +34,7 @@ class _ToDoHomeState extends State<ToDoHome> {
                 final RenderBox box = context.findRenderObject();
                 //TODO: shareメソッドの使い方
                 Share.share(
-                    "${Provider.of<TodoModel>(context, listen: false).todogetItem()}",
+                    "${Provider.of<TODO>(context, listen: false).todogetItem()}",
                     subject: subject,
                     sharePositionOrigin:
                         box.localToGlobal(Offset.zero) & box.size);
@@ -88,7 +88,7 @@ class _ToDoHomeState extends State<ToDoHome> {
                           width: 10,
                         ),
                         Text(
-                          '${Provider.of<TodoModel>(context).todoCount.toString()} items',
+                          '${Provider.of<TODO>(context).todoCount.toString()} items',
                           style: TextStyle(color: Colors.black, fontSize: 18),
                         ),
                       ],

@@ -46,7 +46,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
             color: Colors.red,
             onPressed: () {
               print('$newTodoTitle is new Text');
-              Provider.of<TodoModel>(context, listen: false)
+              Provider.of<TODO>(context, listen: false)
                   .addTodo(newTodoTitle);
 
               Navigator.pop(context);

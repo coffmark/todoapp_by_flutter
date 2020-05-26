@@ -13,15 +13,15 @@ class TodoList extends StatelessWidget {
                 topLeft: Radius.circular(50.0),
                 topRight: Radius.circular(50.0)),
             color: Colors.lightBlue[700]),
-        child: Consumer<TodoModel>(builder: (context, todoModel, child) {
+        child: Consumer<TODO>(builder: (context, todoclass, child) {
           return ListView.separated(
             padding: const EdgeInsets.all(10),
-            itemCount: todoModel.todoCount,
+            itemCount: todoclass.todoCount,
             itemBuilder: (BuildContext context, int index) {
               return TodoTile(
-                todoTitle: todoModel.todos[index],
+                todoTitle: todoclass.todos[index],
                 deletePressCallback: () {
-                  todoModel.deleteTodo(todoModel.todos[index]);
+                  todoclass.deleteTodo(todoclass.todos[index]);
                 },
               );
             },
