@@ -17,9 +17,9 @@ import 'package:sqflite/sqflite.dart';
 //   }, version: 1);
 
 //   //Databaseにinsert
-//   Future<void> insertTodo(TodoData todomodel) async {
+//   Future<void> insertTodo(TodoData todoData) async {
 //     final Database db = await database;
-//     await db.insert('todos', todomodel.toMap(),
+//     await db.insert('todos', todoData.toMap(),
 //         conflictAlgorithm: ConflictAlgorithm.replace);
 //   }
 
@@ -40,10 +40,10 @@ import 'package:sqflite/sqflite.dart';
 //   print(await todos());
 
 //   //Databaseのアップデート
-//   Future<void> updateTodo(TodoData todomodel) async {
+//   Future<void> updateTodo(TodoData todoData) async {
 //     final db = await database;
-//     await db.update('todos', todomodel.toMap(),
-//         where: "id = ?", whereArgs: [todomodel.id]);
+//     await db.update('todos', todoData.toMap(),
+//         where: "id = ?", whereArgs: [todoData.id]);
 //   }
   
 //   //debug Update Database

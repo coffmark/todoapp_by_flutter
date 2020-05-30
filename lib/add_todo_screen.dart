@@ -9,11 +9,12 @@ class AddTodoScreen extends StatefulWidget {
 }
 
 class _AddTodoScreenState extends State<AddTodoScreen> {
+  String newTodoTitle;
   @override
   Widget build(BuildContext context) {
 
 
-    String newTodoTitle;
+    
     return Container(
       padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
             textAlign: TextAlign.center,
             onChanged: (value) {
               newTodoTitle = value;
-              print('$newTodoTitle in TextField');
+              print('テキストフィールドに$newTodoTitle　が入力されました');
             },
           ),
           SizedBox(
@@ -45,9 +46,8 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
             ),
             color: Colors.red,
             onPressed: () {
-              print('$newTodoTitle is new Text');
-              Provider.of<TODO>(context, listen: false)
-                  .addTodo(newTodoTitle);
+              print('$newTodoTitle が登録されました');
+              Provider.of<TODO>(context, listen: false).addTodo(newTodoTitle);
 
               Navigator.pop(context);
             },
