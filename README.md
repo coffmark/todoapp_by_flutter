@@ -5,7 +5,9 @@
 残りはTwitterに#今日の積み上げを投稿するロジックを作成していきます。
 
 
-
+GooglePlayStoreにてリリースできました！
+是非使ってみてください！
+（https://play.google.com/store/apps/details?id=com.kamimura.todo）
 
 ## Getting Started
 
